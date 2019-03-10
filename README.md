@@ -3,6 +3,8 @@
 As a Proof of Concept I simply kept the `App\Session` namespace with the persistence
 implementation in the 'Persistence/Ext' subdirectory.
 
+The code here is a customization of `zend-expressive-session`, `zend-expressive-session-ext` and `dflydev-fig-cookies`
+
 Differences from zend-expressive-session/zend-expressive-session-ext are explained below:
 
 ## 1. SessionInterface
@@ -82,3 +84,16 @@ the dependency on third-party package.
 
 As PoC in the `initiliazeSessionFormRequest` method I allowed the creation of both 
 a lazy and a standard session instance.
+
+## 4. Configuration
+
+There are 2 ConfigProvider classes to enable and test:
+
+- `App/Session/ConfigProvider` for the base session package
+- `App/Session/Persistence/Ext/ConfigProvider` for the session-persistence part
+
+## 5. Caveats
+- This is meant to PoC code only, use at your own risk.
+- You may find unspaced `!` operators, as my personaly preference is to only use space in cases like `! $obj instanceof SomeClass`...
+
+
