@@ -50,6 +50,12 @@ php-ext session will not send another cookie if `session.cookie_lifetime` ini va
 is changed. By using a not-null value of `SessionInterface::getLifetime()`, set
 via a programmatic `persistFor()` call, we can bypass this php limitation.
 
+This also allows us to perform usefule actions:
+
+- Resetting a timed session cookie to a standard session cookie by calling `$session->persistFor(0)`.
+- Setting the cookie lifetime as x-seconds from last access by calling `$session->persistFor($xSeconds)` on each request
+- Setting the cookie lifetime as x-days from first access ("remember me" for 30 days) by calling `$session->persistFor(86400 x 30)` on first login
+
 ## 2. LazySession, Session, AbstractSession, SessionContainer data container.
 
 All data access methods have been moved into a SessionContainer utility class.
