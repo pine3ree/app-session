@@ -98,6 +98,20 @@ There are 2 ConfigProvider classes to enable and test:
 - `App\Session\ConfigProvider` for the base session package
 - `App\Session\Persistence\Ext\ConfigProvider` for the session-persistence part
 
+```php
+// file: data/autoload/session.global.php
+return [
+    'session' => [
+        'persistence' => [
+            'use_lazy_session' => true,
+            'ext' => [
+                'non_locking' => true, // activate `read_and_close` in first session_start call, if called 
+            ],
+        ],
+    ],
+];
+```
+
 ## 5. Caveats
 - This is meant to PoC code only, use at your own risk.
 - You may find unspaced `!` operators, as my personaly preference is to only use space in cases like `! $obj instanceof SomeClass`...
