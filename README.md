@@ -89,8 +89,8 @@ a lazy and a standard session instance.
 
 There are 2 ConfigProvider classes to enable and test:
 
-- `App/Session/ConfigProvider` for the base session package
-- `App/Session/Persistence/Ext/ConfigProvider` for the session-persistence part
+- `App\Session\ConfigProvider` for the base session package
+- `App\Session\Persistence\Ext\ConfigProvider` for the session-persistence part
 
 ## 5. Caveats
 - This is meant to PoC code only, use at your own risk.
