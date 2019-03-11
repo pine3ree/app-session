@@ -46,7 +46,7 @@ class Session extends AbstractSession implements SessionInterface
         }
     }
 
-    protected function data(): SessionContainer
+    protected function data() : SessionContainer
     {
         return $this->data;
     }
