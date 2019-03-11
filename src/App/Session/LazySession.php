@@ -44,7 +44,7 @@ final class LazySession extends AbstractSession implements SessionInterface
     /**
      * @param string $id The session identifier
      * @param bool $isNew Is this session a new session?
-     * @param Closure $dataFactory A callable facory for session container instantiation
+     * @param Closure $dataFactory A callable factory for lazy instantiation of the session container
      */
     public function __construct(string $id, bool $isNew, Closure $dataFactory)
     {
