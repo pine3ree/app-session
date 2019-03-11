@@ -12,8 +12,6 @@ declare(strict_types=1);
 namespace App\Session;
 
 use Closure;
-use JsonSerializable;
-
 use App\Session\SessionInterface;
 
 /**
@@ -34,7 +32,7 @@ use App\Session\SessionInterface;
  * be sent to the client.
  *
  */
-final class LazySession extends AbstractSession implements SessionInterface, JsonSerializable
+final class LazySession extends AbstractSession implements SessionInterface
 {
      /**
      * A data container factory
