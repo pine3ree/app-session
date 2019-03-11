@@ -25,8 +25,9 @@ class Session extends AbstractSession implements SessionInterface
 {
     /**
      * @param string $id The session identifier
-     * @param bool $isNew Is this session a new session
-     * @param array|SessionContainer $data
+     * @param bool $isNew Is this session a new session?
+     * @param array|SessionContainer $data Initial session data, wrapped or to
+     *      be wrapped inside a container
      */
     public function __construct(string $id, bool $isNew, $data)
     {
