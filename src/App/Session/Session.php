@@ -13,7 +13,7 @@ namespace App\Session;
 
 use InvalidArgumentException;
 use App\Session\AbstractSession;
-use App\Session\SessionContainer;
+use App\Session\DataContainer;
 use App\Session\SessionInterface;
 
 use function get_class;
@@ -26,27 +26,27 @@ class Session extends AbstractSession implements SessionInterface
     /**
      * @param string $id The session identifier
      * @param bool $isNew Is this session a new session?
-     * @param array|SessionContainer $data Initial session data, wrapped or to
+     * @param array|DataContainer $data Initial session data, wrapped or to
      *      be wrapped inside a container
      */
     public function __construct(string $id, bool $isNew, $data)
     {
         $this->id = $id;
         $this->isNew = $isNew;
-        if ($data instanceof SessionContainer) {
+        if ($data instanceof DataContainer) {
             $this->data = $data;
         } elseif (is_array($data)) {
-            $this->data = new SessionContainer($data);
+            $this->data = new DataContainer($data);
         } else {
             throw InvalidArgumentException(sprintf(
-                "The data argument must be either a SessionContainer instance"
+                "The data argument must be either a DataContainer instance"
                 . " or an array of initial session data, `%s` given!",
                 is_object($data) ? get_class($data) : gettype($data)
             ));
         }
     }
 
-    protected function data() : SessionContainer
+    protected function data() : DataContainer
     {
         return $this->data;
     }

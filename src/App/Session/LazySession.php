@@ -56,7 +56,7 @@ final class LazySession extends AbstractSession implements SessionInterface
     /**
      * Access the wrapped data container, lazily creating it on first call
      */
-    protected function data() : SessionContainer
+    protected function data() : DataContainer
     {
         if ($this->data === null) {
             $this->data = ($this->dataFactory)();

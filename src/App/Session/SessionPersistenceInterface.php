@@ -13,7 +13,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 use App\Session\SessionInterface;
-use App\Session\SessionContainerInterface;
+use App\Session\DataContainerInterface;
 
 interface SessionPersistenceInterface
 {

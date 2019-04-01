@@ -24,7 +24,7 @@ use const JSON_PRESERVE_ZERO_FRACTION;
  * container in lazy session implementation and as a base class for standard
  * session implementation.
  */
-class SessionContainer
+class DataContainer
 {
     /**
      * Current data within the session.

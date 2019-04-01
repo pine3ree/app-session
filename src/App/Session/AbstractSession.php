@@ -66,7 +66,7 @@ abstract class AbstractSession implements SessionInterface, JsonSerializable
     /**
      * The session data container
      *
-     * @var null|SessionContainer
+     * @var null|DataContainer
      */
     protected $data;
 
@@ -143,7 +143,7 @@ abstract class AbstractSession implements SessionInterface, JsonSerializable
     /**
      * Access the wrapped data container, lazily creating it on first call
      */
-    abstract protected function data() : SessionContainer;
+    abstract protected function data() : DataContainer;
 
     public function jsonSerialize()
     {

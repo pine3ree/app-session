@@ -16,7 +16,7 @@ use App\Session\SessionPersistenceInterface;
 use App\Session\SessionInterface;
 //use App\Session\DataContainer; FGS, pick a name!!!
 //use App\Session\Container; FGS, pick a name!!!
-use App\Session\SessionContainer; // OK, this is it!
+use App\Session\DataContainer; // OK, this is it!
 use App\Session\Session;
 use App\Session\LazySession;
 
@@ -140,15 +140,15 @@ class PhpSessionPersistence implements SessionPersistenceInterface
         if ($this->useLazySession) {
             // inject $requestId from current scope
             return new LazySession($id, $isNew, function () use ($requestId) {
-                return $this->createContainer($requestId);
+                return $this->createDataContainer($requestId);
             });
         }
 
         // PoC non lazy-session
-        return new Session($id, $isNew, $this->createContainer($requestId));
+        return new Session($id, $isNew, $this->createDataContainer($requestId));
     }
 
-    private function createContainer(string $id) : SessionContainer
+    private function createDataContainer(string $id) : DataContainer
     {
         if ($id) {
             $this->startSession($id, [
@@ -156,7 +156,7 @@ class PhpSessionPersistence implements SessionPersistenceInterface
             ]);
         }
 
-        return new SessionContainer($_SESSION ?? []);
+        return new DataContainer($_SESSION ?? []);
     }
 
     public function persistSession(SessionInterface $session, ResponseInterface $response) : ResponseInterface
