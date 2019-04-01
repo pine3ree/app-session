@@ -122,7 +122,7 @@ abstract class AbstractSession implements SessionInterface, JsonSerializable
 
     public function regenerate()
     {
-       $this->isRegenerated = true;
+        $this->isRegenerated = true;
     }
 
     public function isRegenerated() : bool
